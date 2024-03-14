@@ -1,0 +1,835 @@
+<!doctype html>
+<html>
+    <head>
+        <title>New Product | Admin</title>
+        <meta charset="Utf-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="description" content="A robust, hihgly scalable, user friendly, seo optiomized Admin dashboard for ecommerce web site with great functionality and features by virtue">
+        <meta name="keywords" content="E-commerce, ecommerce, dashboard, robust, seo optimized, scalable">
+        <meta name="author" content="Egerega Virtue">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=no">
+        <meta name="csrf-token" content="h5bTrNpku1ZirO1OrqQGUSWZYf47PCQNWN9Dqdm8">
+        <link rel="stylesheet" type="text/css" href="../../admincontent/dashboardStyles/standards.css" >
+        <link rel="stylesheet" href="../../admincontent/dashboardStyles/mediaqueries.css" >
+        <link rel="stylesheet" href="../../admincontent/dashboardStyles/custom.css" >
+        
+        <!--bootstrap css and js -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+       </head>
+    <style>
+        
+    </style>
+    <body >
+        <!--classes are named to get precedence over bootstrap modal -->
+        
+        <div class="page-wrapper">
+            <section >
+                <div class="rows mother-row">
+                    <div class="menu-wrapper " id="menu_wrapper">
+                        
+                        <div class="menu_drop_down">
+                            <ul class="">
+                                <div class="menu-close-wrap lg-nodisplay">
+                                    <div>&nbsp;</div>
+                                    <div class="close-menu" id="menu-close-button" ><i class="bi bi-x"></i></div>
+                                </div>
+                                
+                                <!--  people -->
+                                <li class="content-description">People</li>
+                                    
+                               
+                                    <li class="menu-li-item"><a href="#" onclick="showMenuChild('child-list-admin'); return false;" role="button"> <i class="bi bi-people"></i><span>Admins</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    <section  class="child-list" id="child-list-admin" >
+                                        <li class="menu-li-item content" ><a href="admin.admins"> <i class="bi bi-person-lines-fill"></i><span>Admin List</span></a></li>
+                    
+                                    </section>
+                                    <li class="menu-li-item"><a href="#" onclick="showMenuChild('child-list-user'); return false;" role="button"> <i class="bi bi-person-circle"></i><span>Users</span> <i class="bi bi-chevron-right" id="carret-opener"></i></a></li>
+                                    <section class="child-list" id="child-list-user">
+                                        <li class="menu-li-item content" ><a href="/admin/users"> <i class="bi bi-person-lines-fill"></i><span>Users List</span></a></li>
+                                        
+                                    </section>
+                                
+                                <!-- end of people -->
+                    
+                                <!-- Store Inventory -->
+                    
+                                <li class="content-description">Store Inventory</li>
+                                
+                                    <li class="menu-li-item"><a href="#" onclick="showMenuChild('child-list-brand'); return false;" role="button"> <i class="bi bi-shield-check"></i><span>Brands</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    <section class="child-list" id="child-list-brand">
+                                        <li class="menu-li-item content" ><a href="/admin/brands"> <i class="bi bi-list"></i><span>Brand List</span></a></li>
+                                        <li class="menu-li-item content" ><a href="/admin/brands/new"> <i class="bi bi-plus"></i><span>Add Brand</span></a></li>
+                                        
+                    
+                                    </section>
+                    
+                                
+                                <li class="menu-li-item"><a href="#" onclick="showMenuChild('child-list-category'); return false;" role="button"> <i class="bi bi-boxes"></i><span>Categories</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    <section  class="child-list" id="child-list-category">
+                                        <li class="menu-li-item content" ><a href="/admin/categories"> <i class="bi bi-list"></i><span>Category List</span></a></li>
+                                        <li class="menu-li-item content" ><a href="/admin/categories/new"> <i class="bi bi-plus"></i><span>Add Category</span></a></li>
+                                        
+                                    </section>
+                    
+                                
+                                <li class="menu-li-item"><a href="#" onclick="showMenuChild('child-list-product'); return false;" role="button"> <i class="bi bi-box-seam"></i><span>Products</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    <section class="child-list" id="child-list-product">
+                                        <li class="menu-li-item content"  ><a href="/admin/products"> <i class="bi bi-list"></i><span>Product List</span> </a></li>
+                                        <li class="menu-li-item content"  ><a href="/admin/products/new"> <i class="bi bi-plus"></i><span>Add Product</span> </a></li>
+                                        
+                                    </section>
+                                <!-- end of Store Inventory -->
+                    
+                                <!-- Sales & Coupons-->
+                                <li class="content-description">Sales & Coupons</li>
+                                
+                                    <li class="menu-li-item"><a href="#" onclick="showMenuChild('child-list-order'); return false;" role="button"> <i class="bi bi-cart4"></i><span>Orders</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    <section class="child-list" id="child-list-order" >
+                                        <li class="menu-li-item content" ><a href="admin.orders.display"> <i class="bi bi-list"></i><span>Order List</span></a></li>
+                                        {{-- <li class="menu-li-item content" ><a href="admin.orders.add"> <i class="bi bi-plus"></i><span>Add Order</span></a></li> --}}
+                              
+                    
+                                    </section>
+                    
+                                
+                                <li class="menu-li-item"><a href="#" onclick="showMenuChild('child-list-purchase'); return false;" role="button"> <i class="bi bi-cart-check"></i><span>Purchases</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    <section class="child-list" id="child-list-purchase">
+                                        <li class="menu-li-item content" ><a href="admin.purchase.display"> <i class="bi bi-list"></i><span>Purchase List</span></a></li>
+                                    </section>
+                    
+                                
+                                    <li class="menu-li-item"><a href="#" onclick="showMenuChild('child-list-coupon'); return false;" role="button"> <i class="bi bi-percent"></i><span>Coupons</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    <section class="child-list" id="child-list-coupon">
+                                        <li class="menu-li-item content"  ><a href="admin.coupons"> <i class="bi bi-list"></i><span>Coupon List</span> </a></li>
+                                        <li class="menu-li-item content"  ><a href="admin.coupon.new"> <i class="bi bi-plus"></i><span>Add Coupon</span> </a></li>
+                                        {{-- <li class="menu-li-item content"  ><a href="#"> <i class="bi bi-pen"></i><span>Update Coupon</span> </a></li> --}}
+                                    </section>
+                    
+                                    <li class="menu-li-item"><a href="#" onclick="showMenuChild('child-list-discount'); return false;" role="button"> <i class="bi bi-percent"></i><span>Discount Sales</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    <section class="child-list" id="child-list-discount">
+                                        <li class="menu-li-item content"  ><a href="admin.discount"> <i class="bi bi-list"></i><span>Discount Sales</span> </a></li>
+                                        <li class="menu-li-item content"  ><a href="admin.discount.new"> <i class="bi bi-plus"></i><span>Discount Sales</span> </a></li>
+                                        {{-- <li class="menu-li-item content"  ><a href="#"> <i class="bi bi-pen"></i><span>Update Coupon</span> </a></li> --}}
+                                    </section>
+                                <!-- end of Sales & Coupons-->
+                                
+                                <!-- Store Front-->
+                               
+                                    <li class="content-description">Store Front</li>
+                    
+                                
+                                    <li class="menu-li-item"><a href="#" onclick="showMenuChild('child-list-store-section'); return false;" role="button"> <i class="bi bi-tags"></i><span>Store Section</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    <section class="child-list" id="child-list-store-section">
+                                        <li class="menu-li-item content" ><a href="#"> <i class="bi bi-list"></i><span>Section List</span></a></li>
+                                        <li class="menu-li-item content" ><a href="#"> <i class="bi bi-plus"></i><span>Add Section</span></a></li>
+                                        <li class="menu-li-item content" ><a href="#"> <i class="bi bi-pen"></i><span>Edit Section</span></a></li>
+                    
+                                    </section>
+                    
+                                
+                                    <li class="menu-li-item"><a href="admin.store-banner"  role="button"> <i class="bi bi-flag"></i><span>Store Banner</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    
+                    
+                                
+                                    <li class="menu-li-item"><a href="#" onclick="showMenuChild('child-list-advert'); return false;" role="button"> <i class="bi bi-badge-ad"></i><span>Advert Banner</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    <section class="child-list" id="child-list-advert">
+                                        <li class="menu-li-item content"  ><a href="admin.advert-banner"> <i class="bi bi-list"></i><span>Advert List</span> </a></li>
+                                        <li class="menu-li-item content"  ><a href="admin.advert-banner.new"> <i class="bi bi-plus"></i><span>Add Advert</span> </a></li>
+                                       <li class="menu-li-item content"  ><a href="#"> <i class="bi bi-box-seam"></i><span>Update Advert</span> </a></li> --}}
+                                    </section>
+                    
+                                
+                                    <li class="menu-li-item"><a href="admin.logo" role="button"> <i class="bi bi-person-badge"></i><span>Logo</span> <i class="bi bi-chevron-right"></i></a></li>
+                                    <section class="child-list" >
+                                        <li class="menu-li-item content"  ><a href="admin.logo"> <i class="bi bi-box-seam"></i><span>View Logo</span> </a></li>
+                                        <li class="menu-li-item content"  ><a href="#"> <i class="bi bi-plus"></i><span>Add Logo</span> </a></li>
+                                        <li class="menu-li-item content"  ><a href="#"> <i class="bi bi-box-seam"></i><span></span> </a></li>
+                                    </section>
+                                <!-- end of Store Front-->
+                             
+                                <!-- Sales & Coupons-->
+                                <li class="content-description">Analytics</li>
+                    
+                                <li class="menu-li-item"><a href="admin.profile" role="button"> <i class="bi bi-person-circle"></i><span>Profile</span></a></li>
+                                   
+                                <li class="menu-li-item">
+                                    <form method="post" action="admin.logout">
+                                        
+                                        <button type="submit" ><i class="bi bi-box-arrow-right"></i><span>Logout</span> </button>
+                                    </form>
+                                    
+                                    
+                                   
+                              
+                                    
+                                <!-- end of Sales & Coupons-->
+                            </ul>
+                    
+                        </div>
+                    
+                        
+                    </div>
+
+                    <!-- main page wrap -->
+                    <div class="main-page-wrapper">
+                        <!-- main page: header wrap row  -->
+                        <div class="rows header-row sticky-row with-box-shadow">
+                            <div class="lg-nodisplay menu-btn-wrap" id="menu-open-button">
+                                <button class="menu-open-button" role="button" onclick="document.getElementById('menu_wrapper').style.display = 'block'"><i class="bi bi-list"></i> </button>
+                            </div>
+                            <div class="brand">
+                                <img class="logo" src="../../admincontent/images/logo/logo.png" alt="brand logo" title="logo">
+                            </div>
+                            <div >
+                                <form class="header-search-form">
+                                    <div class="input-group ">
+                                        <input type="text" class="form-control search-input" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        <button class="search-btn darkblue-bg color-cream" type="submit" id="button-addon1"><i class="bi bi-search search-btn"></i></button>
+                                      </div>                                      
+                                </form>
+                            </div>
+                            <div class="avatar-notification-wrap">
+                                <!-- <div class="notifications" role="button" onclick="document.getElementById('notification-wrap').style.display = 'block'"><i class="bi bi-bell"></i><span class="notification-count darkblue-bg color-cream">5</span></div> -->
+                        
+                                <div class="profile-details" role="button" onclick="document.getElementById('extra-details').style.display = 'block'"><img class="user-image" src="../../admincontent/images/avatars/avartar-user.jpg" ></div>
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- main page: roles-wrap wrap row  -->
+                        <section class="scroll-y">
+                            <div>
+                                <div class="header-details" id="page_details">
+                                    <div>
+                                        <div class="order-id-wrap">
+                                            <h6 class="">New Product </h6>
+                                            
+                                        </div>
+                                        
+                                       <small class="order-extra-details">Add new products here</small>
+                                    </div>
+                                    <div class="delete-order-container">
+                                        <div><a href="" class="red-bg color-red button-1 no-text-deco">View Products</a></div>
+                                    </div>
+                                </div>
+                                <div class="padding-5">
+                                    <form id="product_form" method="post" action="http://127.0.0.1:8000/products/" enctype="multipart/form-data">
+                                        
+                                        <div class="lg-grid-70-30 " id="product_form_details">
+                                            <div class=" grid-col-70 ">
+                                                <div class="with-box-shadow white-bg rounded-edges padding-20">
+                                                    <div class=""><h6 class="product-name">Product Information</h6></div>
+                                                    <div class="row form-row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Product Name</label>
+                                                                <input value="" type="text" class="form-control appearance-text-field @error('product_name') is-invalid @enderror" required name="product_name" placeholder="Product Name">
+                                                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="row form-row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Description (optional)</label>
+                                                                <textarea name="product_description" class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Product description"></textarea>
+                                                                
+                                                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="image_preview_wrap" class="image_preview_wrap">
+                                                    <div class="image-preview-container white-bg with-box-shadow" id="image-preview-container">
+                                                        <div class="image-preview">
+                                                            <img class="setImagePreview" id="banner1" />
+                                                        </div>
+                                                        <div class="preview-image-details">
+                                                            <p class="preview-image-name">image-name.jpg</p>
+                                                            <p class="preview-image-size">1.3KB</p>
+                                                           
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                <div class="product-image-dropzone mt-20 mt-20-sm mt-20 mt-20-sm with-box-shadow white-bg rounded-edges padding-20">
+                                                    <div><h6 class="product-name">Product Images</h6></div>
+                                                    <div class="file-upload-wrapper">
+                                                        <div  class="upload-info">
+                                                            <p ><i class="bi bi-cloud-upload"></i></p>
+                                                            <p class="drag-drop">drag and drop up to 5 images here</p>
+                                                            <p class="drag-drop">Click and hold control for multiple selection</p>
+                                                            <button class="upload-product-images">click to upload</button>
+                                                        </div>
+                                                        
+                                                        <input required name="product_images[]" accept="image/*" type="file" id="banner-images-input" class="product-image-upload file-upload @error('product_images') is-invalid @enderror" data-height="500" multiple/>
+                                                       
+                                                            <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                        
+                                                     </div>
+                                                </div>
+                                                <div  class=" mt-20 mt-20-sm mt-20 mt-20-sm with-box-shadow white-bg rounded-edges padding-20">
+                                                    <div class="variation_header"><h6 class="product-name">Product Variant</h6>
+                                                         <!-- <button class="edit_variation">Edit Options</button> -->
+                                                        </div>
+                                                    <!-- <div class="variations_set">
+                                                        <div class="variation_family">
+                                                            <h4>Color</h4>
+                                                            <div class="options">
+                                                                <span class="option_value">Red</span>
+                                                                <span class="option_value">Blue</span>
+                                                                <span class="option_value">Green</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="variations_set">
+                                                        <div class="variation_family">
+                                                            <h4>Size</h4>
+                                                            <div class="options">
+                                                                <span class="option_value">Red</span>
+                                                                <span class="option_value">Blue</span>
+                                                                <span class="option_value">Green</span>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+
+                                                    <div class="product_variant_link">
+                                                        <button type="button" id="go_to_product_variant_btn" class="go_to_product_variant_btn" variables="valexx here" ><span>Add Product Sizes, Colors and more</span> <i class="bi-chevron-right"></i></button> 
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                                
+                                            </div>
+
+
+                                            <div class="grid-col-30 mt-20-sm" >
+                                                <div class="with-box-shadow white-bg rounded-edges padding-20">
+                                                    <div ><h6 class="product-name">Pricing</h6></div>
+                                                    <div class="row form-row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Base Price</label>
+                                                                <input value="{{ old('product_price') }}"  type="number" class="form-control appearance-text-field @error('product_price') is-invalid @enderror" required name="product_price" placeholder="Base Price">
+                                                                
+                                                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Discounted Price</label>
+                                                                <input value="{{ old('product_discount_price') }}" type="number" class="form-control appearance-text-field @error('product_discount_price') is-invalid @enderror" name="product_discount_price" placeholder="Leave empty if no discount">
+                                                                
+                                                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class=" mt-20 mt-20-sm  with-box-shadow white-bg rounded-edges padding-20">
+                                                    <div><h6 class="product-name">Organise</h6></div>
+                                                    <div class="row form-row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                               
+                                                                <label class="form-label flexed-label" ><span class="flexed-label-span">Collection</span> <a href="{{ route('admin.category.create') }}" class="flexed-label-anchor">Add Collection</a></label>
+                                                                <select class="form-select"  id="country" name="product_category"  >
+                                                                    <option value="" id="selectProductCategorybtn" >Select Product Collection</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+                                                <div class="mt-20 mt-20-sm with-box-shadow white-bg rounded-edges padding-20">
+                                                    <div ><h6 class="product-name">Inventory</h6></div>
+                                                    <div class="row form-row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Add to Stock</label>
+                                                                <input value="{{ old('product_inventory') }}"  type="number" class="form-control appearance-text-field @error('product_inventory') is-invalid @enderror" required name="product_inventory" placeholder="Product Stock">
+                                                                
+                                                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                               <button id="save_product" type="submit" class="btn btn-primary green-bg color-green button-2">Save Product</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product_variation_wrap" id="product_form_variation">
+                                            <div class="nav_row">
+                                                <button type="button" id="got_to_product_form_details">back</button>
+                                                <button type="button" id="got_to_product_form_variation_pricing">Continue</button>
+                                            </div>
+                                            <div id="product-variant-body" class=" mt-20 mt-20-sm mt-20 mt-20-sm with-box-shadow white-bg rounded-edges padding-20">
+                                                <div><h6 class="product-name">Product Variant</h6></div>
+                                                <section id="product-variant">
+                                                    <section id="options-for-product-details-1" class="product-variant-class" >
+                                                        <div class="row form-row" >
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label">Options</label>
+                                                                    <select class="select_variant form-select" number="1"  id="select_variant_1"   >
+                                                                        <option value="" disabled selected>Choose Options</option>
+                                                                        <option value="size">Size</option>
+                                                                        <option value="weight">weight</option>
+                                                                        <option value="color">Color</option>
+                                                                        <option value="dimension">Dimension</option>
+                                                                        
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label role="button" class="form-label" >&nbsp;<i id="remove-product-variant-1" number="1" class="remove_product_option bi bi-dash remove-product-variant-value" style="color: brown;" title="dbl Click to remove"></i></label>
+                                                                    <input type="text" id="variant_1" class="input_variant form-control appearance-text-field" placeholder="Variant Value" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <section id="product-variant-child" style="display: none;" class="product-variant-child">
+                                                            <div class="product-variant-child-div-child row form-row" id="options-values-for-product-details">
+                                                                
+                                                                <div class="variant-value-group col-sm-6 col-md-4 col-lg-3" id="option-value-1">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" id="label-option-value" style="text-transform: capitalize;">Value</label>
+                                                                        <div class="input-group ">
+                                                                            <input id="option-value" type="text" class="option-value form-control search-input" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                                            <button class="remove-product-variant white-bg color-cream" type="button" id="button-addon1" number="1">
+                                                                                <i id="remove-product-variant-option-value-1" class="bi bi-dash remove-product-variant-value remove-product-variant-option-value" style="color: brown;"></i>
+                                                                            </button>
+                                                                        </div>   
+                                                                    </div>   
+                                                                </div>
+                                                                
+                                                                
+                                                            </div>
+                                                            <div class="row form-row">
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                      <button type="button" role="button" class="btn-green create-option-value-btn" id="create-option-value-btn" style="text-transform: capitalize;">Add Option Value</button>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </section>
+                                                    </section>
+                                                    <section id="options-for-product-details-2" class="product-variant-class"  style="display: none;">
+                                                        <div class="row form-row" >
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label">Options</label>
+                                                                    <select class="select_variant form-select"  id="select_variant_2" number="2"  >
+                                                                        <option value="" disabled selected>Choose Options</option>
+                                                                        <option value="size">Size</option>
+                                                                        <option value="weight">weight</option>
+                                                                        <option value="color">Color</option>
+                                                                        <option value="dimension">Dimension</option>
+                                                                        
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label role="button" class="form-label" >&nbsp;<i id="remove-product-variant-2" number="2" class="remove_product_option bi bi-dash remove-product-variant-value" style="color: brown;" title="dbl Click to remove"></i></label>
+                                                                    <input type="text" id="variant_2" class="input_variant form-control appearance-text-field" placeholder="Variant Value" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <section id="product-variant-child" style="display: none;" class="product-variant-child">
+                                                            <div class="product-variant-child-div-child row form-row" id="options-values-for-product-details">
+                                                                
+                                                                <div class="variant-value-group col-sm-6 col-md-4 col-lg-3" id="option-value-1">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" id="label-option-value" style="text-transform: capitalize;">Value</label>
+                                                                        <div class="input-group ">
+                                                                            <input id="option-value" type="text" class="option-value form-control search-input" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                                            <button class="remove-product-variant white-bg color-cream" type="button" id="button-addon1" number="1" number="1">
+                                                                                <i id="remove-product-variant-option-value-1" class="bi bi-dash remove-product-variant-value remove-product-variant-option-value" style="color: brown;"></i>
+                                                                            </button>
+                                                                        </div>   
+                                                                    </div>   
+                                                                </div>
+                                                                
+                                                                
+                                                            </div>
+                                                            <div class="row form-row">
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                      <button type="button" role="button" class="btn-green create-option-value-btn" id="create-option-value-btn" style="text-transform: capitalize;">Add Option Value</button>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </section>
+                                                    </section>
+                                                    <section id="options-for-product-details-3" class="product-variant-class" style="display: none;">
+                                                        <div class="row form-row" >
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label">Options</label>
+                                                                    <select class="select_variant form-select"  id="select_variant_3" number="3"   >
+                                                                        <option value="" disabled selected>Choose Options</option>
+                                                                        <option value="size">Size</option>
+                                                                        <option value="weight">weight</option>
+                                                                        <option value="color">Color</option>
+                                                                        <option value="dimension">Dimension</option>
+                                                                        
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label role="button" class="form-label" >&nbsp;<i id="remove-product-variant-3" number="3" class="remove_product_option bi bi-dash remove-product-variant-value" style="color: brown;" title="dbl Click to remove"></i></label>
+                                                                    <input type="text" id="variant_3" class="input_variant form-control appearance-text-field" placeholder="Variant Value" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <section id="product-variant-child" style="display: none;" class="product-variant-child">
+                                                            <div class="product-variant-child-div-child row form-row" id="options-values-for-product-details">
+                                                                
+                                                                <div class="variant-value-group col-sm-6 col-md-4 col-lg-3" id="option-value-1">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" id="label-option-value" style="text-transform: capitalize;">Value</label>
+                                                                        <div class="input-group ">
+                                                                            <input id="option-value" type="text" class="option-value form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                                            <button class="remove-product-variant white-bg color-cream" type="button" id="button-addon1" number="1">
+                                                                                <i id="remove-product-variant-option-value-1" class="bi bi-dash remove-product-variant-value remove-product-variant-option-value" style="color: brown;"></i>
+                                                                            </button>
+                                                                        </div>   
+                                                                    </div>   
+                                                                </div>
+                                                                
+                                                                
+                                                            </div>
+                                                            <div class="row form-row">
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                      <button type="button" role="button" class="btn-green create-option-value-btn" id="create-option-value-btn" style="text-transform: capitalize;">Add Option Value</button>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </section>
+                                                    </section>
+                                                    <section id="options-for-product-details-4" class="product-variant-class" style="display: none;">
+                                                        <div class="row form-row" >
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label">Options</label>
+                                                                    <select class="select_variant form-select"  id="select_variant_4" number="4"   >
+                                                                        <option value="" disabled selected>Choose Options</option>
+                                                                        <option value="size">Size</option>
+                                                                        <option value="weight">weight</option>
+                                                                        <option value="color">Color</option>
+                                                                        <option value="dimension">Dimension</option>
+                                                                        
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label role="button" class="form-label" >&nbsp;<i id="remove-product-variant-4" number="4" class="remove_product_option bi bi-dash remove-product-variant-value" style="color: brown;" title="dbl Click to remove"></i></label>
+                                                                    <input type="text" id="variant_4" class="input_variant form-control appearance-text-field" placeholder="Variant Value" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <section id="product-variant-child" style="display: none;" class="product-variant-child">
+                                                            <div class="product-variant-child-div-child row form-row" id="options-values-for-product-details">
+                                                                
+                                                                <div class="variant-value-group col-sm-6 col-md-4 col-lg-3" id="option-value-1">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" id="label-option-value" style="text-transform: capitalize;">Value</label>
+                                                                        <div class="input-group ">
+                                                                            <input id="option-value" type="text" class="option-value form-control search-input" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                                            <button class="remove-product-variant white-bg color-cream" type="button" id="button-addon1" number="1">
+                                                                                <i id="remove-product-variant-option-value-1" class="bi bi-dash remove-product-variant-value remove-product-variant-option-value" style="color: brown;"></i>
+                                                                            </button>
+                                                                        </div>   
+                                                                    </div>   
+                                                                </div>
+                                                                
+                                                                
+                                                            </div>
+                                                            <div class="row form-row">
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                      <button type="button" role="button" class="btn-green create-option-value-btn" id="create-option-value-btn" style="text-transform: capitalize;">Add Option Value</button>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </section>
+                                                    </section>
+                                                </section>
+                                                
+                                                <div class="row form-row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                          <button type="button" role="button" class="btn-green" id="create-option-btn">Add another Option</button>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product_form_pricing with-box-shadow" id="product_form_variation_pricing">
+                                            <div class="" id="variation_table">
+                                                <div class="page_header">
+                                                    <h4>Product Options</h4>
+                                                </div>
+                                                <div class="nav_row">
+                                                    <button type="button" id="got_back_to_product_form_variation_pricing">back</button>
+                                                    <button type="button" id="got_back_to_product_form_details">Continue</button>
+                                                </div>
+                                                <table class="table">
+                                                    <thead>
+                                                        <th>Price</th>
+                                                        <th>Discount Price</th>
+                                                        <th>Quantity</th>
+                                                        <th>Weight</th>
+                                                        <th>Dimension</th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <section>
+                                                            <tr>
+                                                                <td colspan="4"> <span class="variant">Red-12</span></td>
+                                                                
+                                                                <td><button type="button" class="edit_variation" id="edit-btn" variant="Red-12">Edit <i class="bi-chevron-right"></i></button> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>₦0.00</td>
+                                                                <td>₦0.00</td>
+                                                                <td>0</td>
+                                                                <td>0kg</td>
+                                                                <td>0 x 0 x 0</td>
+                                                            </tr>
+                                                        </section>
+                                                        <section>
+                                                            <tr>
+                                                                <td colspan="4"> <span class="variant">Red-12</span></td>
+                                                                
+                                                                
+                                                                
+                                                                <td><button type="button" class="edit_variation">Edit <i class="bi-chevron-right"></i></button> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <input type="hidden" name="product_variation[1][color]" value="red" />
+                                                                <input type="hidden" name="product_variation[1][size]" value="b" />
+                                                                <td>₦0.00
+                                                                    <input type="hidden" name="product_variation[1][price]" value="" />
+                                                                </td>
+                                                                <td> ₦0.00
+                                                                    <input type="hidden" name="product_variation[1][discount_price]" value="" />
+                                                                </td>
+                                                                <td>0
+                                                                    <input type="hidden" name="product_variation[1][quantity]" value="" />
+                                                                </td>
+                                                                <td>0kg
+                                                                    <input type="hidden" name="product_variation[1][weight]" value="" />
+                                                                </td>
+                                                                <td>0 x 0 x 0
+                                                                    <input type="hidden" name="product_variation[1][dimension]" value="" />
+                                                                </td>
+                                                            </tr>
+                                                            
+                                                        </section>
+                                                        <section>
+                                                            <tr>
+                                                                <td colspan="4"> <span class="variant">Red-14</span></td>
+                                                                
+                                                                
+                                                                
+                                                                <td><button type="button" class="edit_variation">Edit <i class="bi-chevron-right"></i></button> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <input type="hidden" name="product_variation[2][color]" value="red" />
+                                                                <input type="hidden" name="product_variation[2][size]" value="14" />
+                                                                <td>₦0.00
+                                                                    <input type="hidden" name="product_variation[2][price]" value="12000" />
+                                                                </td>
+                                                                <td> ₦0.00
+                                                                    <input type="hidden" name="product_variation[2][discount_price]" value="" />
+                                                                </td>
+                                                                <td>0
+                                                                    <input type="hidden" name="product_variation[2][quantity]" value="6" />
+                                                                </td>
+                                                                <td>0kg
+                                                                    <input type="hidden" name="product_variation[2][weight]" value="23kg" />
+                                                                </td>
+                                                                <td>0 x 0 x 0
+                                                                    <input type="hidden" name="product_variation[2][dimension]" value="23cm x23cm x24cm" />
+                                                                </td>
+                                                            </tr>
+                                                            
+                                                        </section>
+                                                        <section>
+                                                            <tr>
+                                                                <td colspan="4"> <span class="variant">Red-12</span></td>
+                                                                
+                                                                <td><button type="button" class="edit_variation">Edit <i class="bi-chevron-right"></i></button> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>₦0.00</td>
+                                                                <td>₦0.00</td>
+                                                                <td>0</td>
+                                                                <td>0kg</td>
+                                                                <td>0 x 0 x 0</td>
+                                                            </tr>
+                                                        </section>
+                                                    </tbody>
+                                                </table>
+                                                <div class="nav_row">
+                                                    <button type="button" id="got_back_to_product_form_variation_pricing_2">back</button>
+                                                    <button type="button" class="got_back_to_product_form_details">Continue</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="add_variant_unique_prices" id="red-12-edit-form" style="display: none;">
+                                                <div><h6 class="product-name variant_name" id="variant_name_for_edit">Product Variant</h6></div>
+                                                <div class="form_variant_edit">
+                                                    <div class="row form-row variant_price_edit">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Product Price</label>
+                                                                <input value="" type="text" class="form-control appearance-text-field @error('product_name') is-invalid @enderror" placeholder="Product Name">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Discount Price</label>
+                                                                <input value="" type="text" class="form-control appearance-text-field @error('product_name') is-invalid @enderror" placeholder="Product Name">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Quantity</label>
+                                                                <input value="" type="text" class="form-control appearance-text-field @error('product_name') is-invalid @enderror" placeholder="Product Name">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Weight</label>
+                                                                <input value="" type="text" class="form-control appearance-text-field @error('product_name') is-invalid @enderror" placeholder="Product Name">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Dimesion</label>
+                                                                <input value="" type="text" class="form-control appearance-text-field @error('product_name') is-invalid @enderror" placeholder="Product Name">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-row">
+                                                        <div class=" col-sm-12">
+                                                            <div class="form-group btn-form-group">
+                                                               <button type="button" class="btn-green" id="save_product_variant_pricing">Save</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                           
+                                           
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                
+                            </div>
+                            
+                            <div>&nbsp;</div>
+                            <div>&nbsp;</div>
+                        </section>
+                    </div>
+                </div>
+
+               
+                <!-- extra details for notification ends here, available on click -->
+                <!-- extra details for profile, available on click -->
+                <!-- extra details for profile, available on click -->
+                <div class="extra-details with-box-shadow white-bg" id="extra-details">
+                    <div class="header-profile">
+                        <div><img class="user-image" src="../../admincontent/images/avatars/avartar-user.jpg"></div>
+                        <div>
+                            <p class="user-name">veelax jamin</p>
+                                <p class="user-role">Admin
+                            </p>
+                        </div>
+                        <div class="close-extra" role="button" onclick="document.getElementById('extra-details').style.display = 'none'">
+                            <i class="bi bi-x "></i>
+                        </div>
+                    </div>
+                    <div><a href="{{ route('admin.profile') }}" class="details-btn-hidden no-text-deco grey-bg-hover" title="view more"><i class="bi bi-person-check"></i>&nbsp;&nbsp;&nbsp;My Profile</a></div>
+                    <div><a href="{{ route('admin.profile') }}" class="details-btn-hidden no-text-deco grey-bg-hover" title="view more"><i class="bi bi-gear"></i>&nbsp;&nbsp;&nbsp;Setting</a></div>
+                    <form class="">
+                        <div class="row form-row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control">
+                                    <button class="extra-details-btn delete-btn grey-bg-hover" type="submit" id="button-addon1"> <i class="bi bi-box-arrow-right"></i>&nbsp;&nbsp;&nbsp;Logout</button>
+
+                                </div>
+                            </div>
+                                                            
+                    </form>  
+                </div>
+                <!-- extra details for profile ends here, available on click -->
+            </section>
+        </div>
+
+        <script type="text/javascript">  
+            function showChildList(childname){
+                var childList = document.getElementById(childname)
+                childList.classList.remove("class_list_before_click");
+                childList.setAttribute('class', 'child-list' )
+            }
+        
+        </script>
+        <script type="text/javascript" src="../../admincontent/scripts/product_options.js"></script>
+        <script type="text/javascript" src="../../admincontent/scripts/product-form.js"></script>
+        <script type="text/javascript" src="../../admincontent/scripts/menu.js"></script>
+        <script type="text/javascript" src="../../admincontent/scripts/imagepreview.js"></script>
+        <script type="text/javascript" src="../../admincontent/scripts/bannerImagePreview.js"></script>
+        <script type="text/javascript" src="../../admincontent/scripts/edit_product.js"></script>
+        <script type="text/javascript" src="../../admincontent/scripts/product_form_navigation.js"></script>
+        <script type="text/javascript" src="../../admincontent/scripts/product_variation_prices.js"></script>
+        <script type="text/javascript" src="../../admincontent/scripts/product_form_data.js"></script>
+    </body>
+    
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Valex Shop</title>
+        <meta charset="utf-8">
+        <meta name="Author" content="Egerega Virtue">
+        <meta name="description" content="An online website customizable template">
+        <meta name="keywords" content="E-commerce Shopping online-store">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="" id="viewport">
+        <!--bootstrap css and js -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <!--Custom styles-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <!-- custom styles -->
+        <link href="../../../content/themes/css/mediascreens.css" rel="stylesheet" >
+        <link href="../../../content/themes/css/constants.css" rel="stylesheet" >
+        <link href="../../../content/themes/css/standard.css" rel="stylesheet" >
+        <script type="text/javascript">
+            var vw = window.screen.width;
+            // document.querySelector('meta[name="description"]').setAttribute("content", _desc);
+            console.log(vw)
+            var viewport = document.getElementById("viewport");
+
+            if(vw > 1000){
+                 viewport.setAttribute('content', 'width=1200 inital-scale=1.0');
+
+            }else if(vw > 700 && vw < 1000){
+                 viewport.setAttribute('content', 'width=1100 inital-scale=1.0');
+                 
+            }else if(vw > 350 && vw < 700 ){
+                viewport.setAttribute('content', 'width=1000 inital-scale=1.0');
+            
+           }else{
+                 viewport.setAttribute('content', 'width=400 inital-scale=1.0');
+            }
+            
+         </script>
+    </head>
+    <body>
+        <div class="page_wrapper">
+            <header>
+                <div class="containers">
+                    <div class="rows header_row">
+                        <div class="brand_row">
+                            <div class="brand">
+                                <a href="#" class="logo_link">
+                                    <img src="../../../content/uploads/images/logo/logo3.png" alt="VeeShop" class="brand_logo">
+                                </a>
+                            </div>
+                            <div class="header_search">
+                                <form action="" class="search_form">
+                                    <div class="search_group">
+                                        <span class="search_icon" id="basic-addon1"><i class="bi bi-search"></i></span>
+                                        <input type="search" class="header_search_input" placeholder="Search Products" aria-label="Username" aria-describedby="basic-addon1">
+                                      </div>
+                                      
+                                </form>
+                            </div>
+                            <div class="header_cart_row">
+                                <div class="other_links">
+
+                                    <div class="header_wishlist">
+                                        <a href="" class="wishlist_link">
+                                            <i class="bi-heart header_icon"></i>
+                                        </a>
+                                    </div>
+                                    <div class="header_user">
+                                        <a href="" class="user_link">
+                                            <i class="bi-person header_icon"></i>
+                                        </a>
+                                    </div>
+                                    <div class="header_cart">
+                                        <a href="" class="cart_link">
+                                            <i class="bi-bag header_icon"></i><sup class="cart_no">5</sup>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="collection_row">
+                            <ul>
+                                <li><a href="" class="nav_links ">Sales</a></li>
+                                <li><a href="" class="nav_links">All Products</a></li>
+                                <li><a href="" class="nav_links">Shop</a></li>
+                                <li><a href="" class="nav_links">Catgories</a></li>
+                                <li><a href="" class="nav_links">Shop Brands</a></li>
+                                <li><a href="" class="nav_links">Popular Products</a></li>
+                                <li><a href="" class="nav_links">Help &quest;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </header>
+            <main>
+                
+                <div class="rows page_navigation">
+                    <div class="pages">
+                        <p>
+                            <a href="../index.html" class="page_link">Home</a>
+                            <a href=""  class="page_link active">/Dashboard</a>
+                            <!-- <a href=""  class="page_link"></a> -->
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="rows dashboard_wrap">
+                    
+                    <div class="otherinfo">
+                        <div class="dashboard-intro">
+                            <h1>Dashboard</h1>
+                            <p ></p>
+                            
+                        </div>
+                        <div>
+                            @if($userWishlist->count() > 0)
+                                <div class="wish-set" >
+                                    @foreach($userWishlist as $wishproduct)
+                                        <div class="wishlist">
+                                            
+                                            <div class="wish-product-image">
+                                                <img src="{{asset('storage/'.$wishproduct->wishlistProducts->product_image_1) }}" />
+                                            </div>
+                                            <div class="wish-price-wrap">
+                                                <h5 class="thick single-product-description">{{ $wishproduct->wishlistProducts->product_name }} - {{ $wishproduct->wishlistProducts->productBrands->brand_name }}</h5>
+                                                <p>
+                                                    @empty($wishproduct->wishlistProducts->product_discount_price)
+                                                        <span class="thick">₦{{ number_format($wishproduct->wishlistProducts->product_price, 2) }}</span>&nbsp;
+                                                    @else
+                                                        <span class="thick">₦{{ number_format($wishproduct->wishlistProducts->product_discount_price) }}</span>&nbsp;
+                                                        
+                                                    @endempty
+                                                    
+                                                    @if($wishproduct->wishlistProducts->productInventory->stock_quantity > 0)
+                                                        <sup class="stock in-stock">In Stock</sup> 
+                                                    @else
+                                                        <sup class="stock out-of-stock">In Stock</sup> 
+                                                    @endif
+
+                                                    &nbsp; &nbsp;  
+
+                                                    @empty($wishproduct->wishlistProducts->product_discount_price)
+
+                                                    @else
+                                                        <s>₦{{ number_format($wishproduct->wishlistProducts->product_price) }}</s>
+                                                    @endempty
+                                                </p>
+                                                
+                                                @empty($wishproduct->color)
+                                                
+
+                                                @else
+                                                    <p class="wishlist-variants">
+                                                        <span>Color:</span> <span>{{ $wishproduct->color }}</span>
+                                                    </p>
+
+                                                @endempty
+
+                                                {{-- @empty($wishproduct->size)
+                                                
+
+                                                @else
+                                                    <p class="wishlist-variants">
+                                                        <span>Size:</span> <span>{{ $wishproduct->size }}</span>
+                                                    </p>
+
+                                                @endempty --}}
+
+                                                
+                                                
+                                                <div class="">
+
+                                                    <form method="post" action="{{ route('auth.user.profile.update') }}">
+                                                        @csrf
+                                                        <div class="sm-grid row form-row">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <a style="color:red; border: 1px solid red;" href="{{ route('auth.user.wishlist.delete', $product_id = $wishproduct->id) }}" class="btn " type="submit" ><i class="bi-trash"></i>  Remove</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <input  type="hidden" name="product_id" value="{{ $wishproduct->wishlistProducts->id }}">
+                                                                <input  type="hidden" name="product_price" value="{{ $wishproduct->wishlistProducts->product_price }}">
+                                                                <input  type="hidden" name="product_size" value="{{ $wishproduct->size }}">
+                                                                <input  type="hidden" name="product_color" value="{{ $wishproduct->color }}">
+                                                                <div class="form-group">
+                                                                    @if($wishproduct->wishlistProducts->productInventory->stock_quantity > 0)
+                                                                        <button style="color: rgb(0, 174, 255); border: 1px solid rgb(0, 174, 255)" class="btn " type="submit" ><i class="bi-cart4"></i> Move to cart</button>
+                                                                    @else
+                                                                        <button disabled style="color: rgb(0, 174, 255); border: 1px solid rgb(0, 174, 255);  opacity: 0.6; pointer-events: none;" class="btn"  ><i class="bi-cart4"></i> Move to cart</button>
+                                                                    @endif
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </form>
+                                                    
+                                                </div>
+                                            
+                                            </div>
+                                        </div> 
+                                    @endforeach
+                                    
+                                    
+                                    
+                                </div>
+                            @else 
+                          
+                                <div class="empty-order">
+                                        
+                                    <span class="product-no">
+                                        <i></i>
+                                        You have not added anything to your wishlist yet
+                                    </span>
+                                
+                                
+                                    <a href="{{ route('home') }}" class="browse-btn" role="button"> Browse Products</a>
+                                
+                                </div>
+
+                            @endif
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                
+            </main>
+            <div class="sticky_shortcuts">
+                <div class="rows sticky_footer_for_shortcuts">
+                    <div class="shortcut"><a href=""><i class="bi bi-house-door"></i>
+                        <span class="link_description">Home</span>
+                    </a></div>
+                    <div class="shortcut"><a href=""><i class="bi bi-cart4"></i>
+                        <span class="link_description">My Orders</span>
+                    </a></div>
+
+                    <div class="shortcut">
+                        <a href=""><i class="bi bi-heart"></i>
+                        <span class="link_description">Wishlist</span>
+                        </a>
+                    </div>
+                    <div class="shortcut">
+                        <a href=""><i class="bi bi-person"></i>
+                            <span class="link_description">Profile</span>
+                        </a>
+                    </div>
+                    <div class="shortcut">
+                        <a href="">
+                            <i class="bi bi-pin-map"></i>
+                            <span class="link_description">Address</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

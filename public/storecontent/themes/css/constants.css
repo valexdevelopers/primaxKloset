@@ -1,0 +1,11 @@
+/* defining constant non changing values */
+:root{
+    --maroon: rgb(31, 12, 12);
+    --horseblood: rgb(46, 2, 2);
+    --horserblood2: #220e19;
+    --whitish:#fafaff;
+    --redish:#984e64;
+    --blackish:#220e19;
+    --text_color: rgb(249, 228, 228);
+    --color_gradient:linear-gradient(90deg, rgba(88,27,50,1) 4%, rgba(171,14,73,1) 37%, rgba(171,14,73,1) 50%, rgba(171,14,73,1) 63%, rgba(88,27,50,1) 96%);
+}

@@ -1,0 +1,25 @@
+/* standards for different screen widths */
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=NTR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Metrophobic&family=NTR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjord+One&family=Noto+Sans&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+/* font-family: 'Cutive Mono', monospace;
+font-family: 'Cutive Mono', monospace;
+font-family: 'NTR', sans-serif;
+
+font-family: 'Cutive Mono', monospace;
+font-family: 'Metrophobic', sans-serif;
+font-family: 'NTR', sans-serif; 
+font-family: 'Roboto', sans-serif;
+*/
+header, main{
+    position: relative;
+}
+header, footer{
+    background: #220e19;
+}
+
+.page_wrapper{
+    font-family: 'Comfortaa', sans-serif;
+}
