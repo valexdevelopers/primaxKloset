@@ -35,6 +35,16 @@
                                 <img  src="{{ asset('storecontent/uploads/images/banner/signup.jpg') }}" alt="" class="registration_banner">
                             </div>
                             <div class="registration_form">
+                                @if($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+
+                                @endif
                                 @if(Session::has('message'))
                                     <div class="alert {{ Session::get('message-color') }} alert-dismissible fade show" role="alert">
                                         <strong>{{ Session::get('message') }}</strong>
@@ -48,7 +58,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-lable">Email</label>
-                                                <input type="email" class="form-control" placeholder="" value="" required >
+                                                <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="" value="" required >
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +66,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-lable">First Name</label>
-                                                <input type="text" class="form-control" name="firstname" required>
+                                                <input type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" required>
                                             </div>
                                         </div>
                                     </div>
@@ -64,7 +74,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-lable">Last Name</label>
-                                                <input type="text" class="form-control" name="lastname" required>
+                                                <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" required>
                                             </div>
                                         </div>
                                     </div>
@@ -72,7 +82,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-lable">Mobile Number</label>
-                                                <input type="text" class="form-control" name="mobile" required>
+                                                <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" required>
                                             </div>
                                         </div>
                                     </div>
@@ -80,7 +90,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-lable">Password</label>
-                                                <input type="password" class="form-control" name="password" required> 
+                                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required> 
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +98,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-lable">Confirm Password</label>
-                                                <input type="password" class="form-control" name="password_confirmation" required>
+                                                <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required>
                                             </div>
                                         </div>
                                     </div>

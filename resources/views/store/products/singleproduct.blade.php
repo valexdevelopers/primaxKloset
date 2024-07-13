@@ -16,7 +16,7 @@
                     <div class="pages">
                         <p>
                             <a href="{{ route('store.home') }}" class="page_link">Home</a>
-                            <a href="productList.html"  class="page_link">/Products</a>
+                            <a href="#"  class="page_link">/Products</a>
                             <a href=""  class="page_link active">/{{ $product->product_name }} </a>
                             <!-- <a href=""  class="page_link"></a> -->
                             
